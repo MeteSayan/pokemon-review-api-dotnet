@@ -39,6 +39,12 @@ namespace PokemonReviewApp.Repository
             return Save();
         }
 
+        public bool DeletePokemon(Pokemon pokemon)
+        {
+            _context.Remove(pokemon);
+            return Save();
+        }
+
         public ICollection<Pokemon> GetAll()
         {
             return _context.Pokemon.OrderBy(p => p.Id).ToList();
