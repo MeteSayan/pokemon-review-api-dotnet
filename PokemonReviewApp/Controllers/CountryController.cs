@@ -145,12 +145,12 @@ namespace PokemonReviewApp.Controllers
             if (!_countryRepository.CountryExists(countryId))
                 return NotFound();
 
-            var categoryToDelete = _countryRepository.GetCountry(countryId);
+            var countryToDelete = _countryRepository.GetCountry(countryId);
 
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            if (!_countryRepository.DeleteCountry(categoryToDelete))
+            if (!_countryRepository.DeleteCountry(countryToDelete))
             {
                 ModelState.AddModelError("", "Something went wrong deleting country");
             }
