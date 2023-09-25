@@ -85,9 +85,7 @@ namespace PokemonReviewApp.Controllers
                 return BadRequest(ModelState);
             }
 
-            var pokemon = _pokemonRepository.GetAll()
-                .Where(c => c.Name.Trim().ToUpper() == pokemonCreate.Name.TrimEnd().ToUpper())
-                .FirstOrDefault();
+            var pokemon = _pokemonRepository.GetPokemonTrimToUpper(pokemonCreate);
 
             if (pokemon != null)
             {
